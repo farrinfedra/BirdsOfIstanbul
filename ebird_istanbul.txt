@@ -1,0 +1,494 @@
+Eurasian Siskin
+Ruddy Shelduck
+Green Sandpiper
+Great Cormorant
+Gray Heron
+Eurasian Magpie
+Eurasian Jackdaw
+Rook
+Hooded Crow
+Calandra Lark
+Eurasian Skylark
+Common Chiffchaff
+European Robin
+Eurasian Tree Sparrow
+White Wagtail
+Common Chaffinch
+Corn Bunting
+Yellowhammer
+Reed Bunting
+White Stork
+Northern Pintail
+Green-winged Teal
+Eurasian Collared-Dove
+Eurasian Coot
+Black-headed Gull
+Hen Harrier
+Common Buzzard
+White-spectacled Bulbul
+Eurasian Blackbird
+Sitta krueperi
+Rock Pigeon
+Laughing Dove
+Eurasian Sparrowhawk
+Great Tit
+European Starling
+House Sparrow
+Syrian Woodpecker
+Eurasian Wren
+Long-tailed Tit
+Yellow-legged Gull
+Rose-ringed Parakeet
+Eurasian Blackcap
+European Greenfinch
+Alexandrine Parakeet
+Common Raven
+Eurasian Blue Tit
+Hawfinch
+Gray Wagtail
+Long-eared Owl
+Cetti's Warbler
+Song Thrush
+Great Egret
+Little Egret
+Little Owl
+Eurasian Kestrel
+Eurasian Hoopoe
+Common Swift
+Common Snipe
+White-throated Kingfisher
+Eurasian Penduline-Tit
+Delicate Prinia
+Barn Swallow
+Common House-Martin
+Sardinian Warbler
+Bluethroat
+Black Redstart
+Dunnock
+Spanish Sparrow
+Meadow Pipit
+European Goldfinch
+European Serin
+Little Grebe
+Eurasian Moorhen
+Pygmy Cormorant
+Eurasian Jay
+Coal Tit
+Goldcrest
+Common Firecrest
+Spur-winged Lapwing
+Ruff
+Black Kite
+Crested Lark
+Desert Finch
+Eurasian Linnet
+Caspian Gull
+Common Myna
+Mediterranean Gull
+Lesser Black-backed Gull
+Sandwich Tern
+Ruppell's Warbler
+Northern Wheatear
+Common Pochard
+Ferruginous Duck
+Great Crested Grebe
+Mallard
+Common Gull
+Armenian Gull
+Red-rumped Swallow
+Fieldfare
+Common Wood-Pigeon
+Water Pipit
+Garganey
+Greater White-fronted Goose
+Gadwall
+Eurasian Griffon
+Peregrine Falcon
+Turkestan Short-toed Lark
+Eurasian Crag-Martin
+Fire-fronted Serin
+Red-wattled Lapwing
+Spotted Redshank
+Black-winged Kite
+Imperial Eagle
+Eurasian Marsh-Harrier
+Long-legged Buzzard
+Pied Kingfisher
+Merlin
+European Stonechat
+Isabelline Wheatear
+Northern Lapwing
+Common Kingfisher
+Mistle Thrush
+White-throated Dipper
+Collared Flycatcher
+Lesser Spotted Woodpecker
+Cattle Egret
+Northern Shoveler
+Greater Flamingo
+Great White Pelican
+Eared Grebe
+Brambling
+Black Stork
+Slender-billed Gull
+Greater Sand-Plover
+Kentish Plover
+European Golden-Plover
+Little Ringed Plover
+Short-toed Snake-Eagle
+Common Crane
+Middle Spotted Woodpecker
+Gray-headed Woodpecker
+Blue Rock-Thrush
+Chukar
+Eurasian Green Woodpecker
+Mute Swan
+Water Rail
+Jack Snipe
+Barn Owl
+Western Rock Nuthatch
+Finsch's Wheatear
+Eastern Subalpine Warbler
+Tufted Duck
+Ring Ouzel
+Redwing
+Rock Sparrow
+Eurasian Bullfinch
+Cirl Bunting
+Golden Eagle
+Red-billed Chough
+Yellow-billed Chough
+Eurasian Oystercatcher
+Black-bellied Plover
+Marsh Tit
+Wood Lark
+Pallas's Gull
+Pomarine Jaeger
+Parasitic Jaeger
+Arctic Loon
+European Shag
+Eurasian Wigeon
+Eurasian Curlew
+Black-tailed Godwit
+Common Greenshank
+Common Redshank
+Eurasian Spoonbill
+Red-crested Pochard
+Black Francolin
+Gray-headed Swamphen
+Greater Spotted Eagle
+Common Shelduck
+Black-bellied Sandgrouse
+Graylag Goose
+Great Bittern
+Bearded Reedling
+Dunlin
+Red Kite
+Great Spotted Woodpecker
+Red-breasted Merganser
+Dalmatian Pelican
+White-backed Woodpecker
+Short-toed Treecreeper
+Tawny Owl
+Yelkouan Shearwater
+Eurasian Nuthatch
+Little Gull
+Northern Goshawk
+Great Gray Shrike
+Sombre Tit
+Eurasian Thick-knee
+Common Ringed Plover
+Little Stint
+Marsh Sandpiper
+Willow Warbler
+Lesser Whitethroat
+Common Sandpiper
+Bearded Vulture
+Cinereous Vulture
+White-tailed Eagle
+Pied Avocet
+White-headed Duck
+Bar-tailed Godwit
+Temminck's Stint
+Great Spotted Cuckoo
+Ring-necked Pheasant
+Red-necked Grebe
+Black Woodpecker
+Bimaculated Lark
+Stock Dove
+Red Crossbill
+Eurasian Treecreeper
+Twite
+Alpine Accentor
+Rock Bunting
+Horned Lark
+White-winged Snowfinch
+Red-throated Loon
+White-winged Tern
+Common Quail
+Red-throated Pipit
+Common Eider
+Moustached Warbler
+Cory's Shearwater
+Mediterranean Short-toed Lark
+Iraq Babbler
+Great Black-backed Gull
+Sanderling
+Whooper Swan
+Steppe Eagle
+Horned Grebe
+Ruddy Turnstone
+Smew
+Greater Scaup
+Richard's Pipit
+Siberian Stonechat
+Caspian Tern
+Wallcreeper
+Eastern Rock Nuthatch
+Radde's Accentor
+Lesser Spotted Eagle
+American Pipit
+Little Swift
+Black-throated Thrush
+Osprey
+Velvet Scoter
+Common Scoter
+Pallid Harrier
+Crimson-winged Finch
+Audouin's Gull
+Gray Partridge
+Eurasian Woodcock
+Eurasian Eagle-Owl
+Black-crowned Night-Heron
+Short-eared Owl
+Tundra Swan
+Glossy Ibis
+Spectacled Warbler
+Rough-legged Hawk
+Rustic Bunting
+Black-legged Kittiwake
+Common Tern
+Booted Eagle
+Whiskered Tern
+Dead Sea Sparrow
+Zitting Cisticola
+Herring Gull
+Common Goldeneye
+Whinchat
+Common Merganser
+Sooty Shearwater
+Sabine's Gull
+Black Tern
+Tawny Pipit
+Barred Warbler
+Curlew Sandpiper
+Eurasian Wryneck
+Purple Heron
+Red-backed Shrike
+Citrine Wagtail
+Whimbrel
+Lesser White-fronted Goose
+Blyth's Pipit
+Snow Bunting
+Red-breasted Goose
+Red Knot
+Little Crake
+Caspian Snowcock
+Tree Pipit
+Common Redstart
+Eurasian Nightjar
+See-see Partridge
+Red-footed Falcon
+Pallid Scops-Owl
+Bank Swallow
+Mountain Chiffchaff
+Black-winged Stilt
+Wood Sandpiper
+Western Yellow Wagtail
+Great Reed Warbler
+Greater Whitethroat
+Pallid Swift
+Eurasian Reed Warbler
+Squacco Heron
+Olive-backed Pipit
+Red-breasted Flycatcher
+Kurdish Wheatear
+Caucasian Grouse
+Alpine Swift
+Sociable Lapwing
+Eurasian Hobby
+Spotted Flycatcher
+Sedge Warbler
+Marsh Warbler
+Gull-billed Tern
+Spotted Crake
+Garden Warbler
+Montagu's Harrier
+Black-winged Pratincole
+Greater Short-toed Lark
+Savi's Warbler
+Eurasian Dotterel
+Pallas's Leaf Warbler
+Dusky Warbler
+Pine Bunting
+Little Bunting
+Rufous-tailed Rock-Thrush
+Eurasian Scops-Owl
+Masked Shrike
+European Honey-buzzard
+European Turtle-Dove
+Pin-tailed Snipe
+Little Bittern
+Thrush Nightingale
+European Bee-eater
+Lesser Gray Shrike
+Common Cuckoo
+Red-tailed Shrike
+Menetries's Warbler
+Common Rosefinch
+Lesser Kestrel
+Wood Warbler
+European Roller
+Eleonora's Falcon
+Levant Sparrowhawk
+Corn Crake
+Woodchat Shrike
+Eastern Black-eared Wheatear
+Blue-cheeked Bee-eater
+Common Nightingale
+Little Tern
+Pied Bushchat
+Ortolan Bunting
+Green Warbler
+Black-headed Bunting
+Collared Pratincole
+Eurasian Golden Oriole
+Eastern Bonelli's Warbler
+Eastern Orphean Warbler
+Trumpeter Finch
+River Warbler
+Eastern Olivaceous Warbler
+White-eared Bulbul
+Oriental Honey-buzzard
+Egyptian Vulture
+Red-necked Phalarope
+European Pied Flycatcher
+Broad-billed Sandpiper
+Blyth's Reed Warbler
+Booted Warbler
+Pacific Golden-Plover
+Rosy Starling
+Namaqua Dove
+Rufous-tailed Scrub-Robin
+Olive-tree Warbler
+Terek Sandpiper
+Semicollared Flycatcher
+Demoiselle Crane
+Upcher's Warbler
+Northern Bald Ibis
+Cretzschmar's Bunting
+Icterine Warbler
+Cream-colored Courser
+Greater Hoopoe-Lark
+White-throated Robin
+Gray-necked Bunting
+European Storm-Petrel
+Pale Rockfinch
+Yellow-throated Sparrow
+Sooty Falcon
+Cinereous Bunting
+Desert Lark
+Paddyfield Warbler
+Mongolian Finch
+Great Snipe
+Western Reef-Heron
+Lesser Flamingo
+Bar-tailed Lark
+White-tailed Lapwing
+Pied Wheatear
+Baillon's Crake
+Common Grasshopper-Warbler
+Arabian Lark
+Egyptian Nightjar
+Hooded Wheatear
+Northern Gannet
+Cyprus Wheatear
+Caspian Plover
+Lesser Yellowlegs
+Spotted Sandgrouse
+Desert Wheatear
+Macqueen's Bustard
+Little Bustard
+Lesser Sand-Plover
+Cyprus Warbler
+Asian Desert Warbler
+American Golden-Plover
+Lapland Longspur
+Streak-throated Swallow
+Yellow-browed Warbler
+Striped Crake
+Red-flanked Bluetail
+Pectoral Sandpiper
+Shikra
+Sykes's Warbler
+Long-tailed Duck
+Isabelline Shrike
+Marbled Teal
+Egyptian Goose
+Tundra Bean-Goose
+Carrion Crow
+Oriental Turtle-Dove
+Basra Reed Warbler
+Gray-headed Lapwing
+Oriental Skylark
+Bohemian Waxwing
+Red Phalarope
+Black-throated Accentor
+Long-tailed Jaeger
+Bateleur
+Glaucous Gull
+Allen's Gallinule
+Red-headed Bunting
+Greenish Warbler
+Yellow-billed Stork
+Mourning Wheatear
+Baird's Sandpiper
+Pink-backed Pelican
+Eurasian Nutcracker
+Siberian Accentor
+Common Redpoll
+Arctic Tern
+Fan-tailed Raven
+White-crowned Wheatear
+Lesser Crested Tern
+Great Skua
+Barnacle Goose
+Arctic Warbler
+White-rumped Sandpiper
+Hume's Warbler
+Slender-billed Curlew
+Aquatic Warbler
+Common Loon
+Pallas's Sandgrouse
+Spotted Sandpiper
+White-eyed Gull
+Long-tailed Shrike
+Hypocolius
+Crab-Plover
+Brown-necked Raven
+Wilson's Phalarope
+Brant
+Melodious Warbler
+African Darter
+Black Lark
+White-winged Lark
+Black Grouse
+Siberian Crane
+Indian Roller
+Boreal Owl
+Great Bustard
+Brown Fish-Owl
+Lanner Falcon
+Saker Falcon
+Bonelli's Eagle
+Pin-tailed Sandgrouse
