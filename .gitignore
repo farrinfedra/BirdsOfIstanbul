@@ -4,4 +4,5 @@ audio
 kill.sh
 bad_urls.txt
 .ipynb_checkpoints/delta_lists-checkpoint.ipynb
+.DS_Store
 
