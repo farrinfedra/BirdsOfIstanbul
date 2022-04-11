@@ -1,8 +1,8 @@
 .idea
-dataset
+dataset/audio
 audio
 kill.sh
 bad_urls.txt
 .ipynb_checkpoints
 .DS_Store
-
+.gitignore
