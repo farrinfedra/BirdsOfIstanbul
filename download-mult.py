@@ -171,8 +171,8 @@ if __name__ == '__main__':
     else:
         all_birds = [args.name.lower()]
     # retrieve metadata
-    #metadata_path = metadata(all_birds)
-    metadata_path = './dataset/metadata/' + os.listdir('./dataset/metadata')
+    metadata_path = metadata(all_birds)
+    #metadata_path = './dataset/metadata/' + os.listdir('./dataset/metadata')
     print(metadata_path)
     # multiprocessing
     worker_count = int(multiprocessing.cpu_count() * args.process_ratio)
