@@ -3,6 +3,6 @@ dataset
 audio
 kill.sh
 bad_urls.txt
-.ipynb_checkpoints/delta_lists-checkpoint.ipynb
+.ipynb_checkpoints
 .DS_Store
 
