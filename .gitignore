@@ -1,5 +1,5 @@
 .idea
-dataset
+dataset/audio
 audio
 kill.sh
 bad_urls.txt
