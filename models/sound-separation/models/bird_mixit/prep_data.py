@@ -20,4 +20,7 @@ if __name__ == '__main__':
                 srate = fs.getframerate()
             if not srate == 25050:
                 convert_audio(path, audio)
+            else:
+                break
+    print("All data converted to 22050 Hz")
     
