@@ -70,7 +70,7 @@ args = parser.parse_args()
 
 
 wandb.init(project="istangul-sm-dataset")
-wandb.config = {"learning_rate": 1e-5, "epochs": 25, "batch_size": 48} # change this later on
+wandb.config = {"learning_rate": 1e-5, "epochs": 25, "batch_size": 48} # fix to 6
 
 
 # transformer based model

@@ -73,3 +73,6 @@ start training...
 ---------------
 2022-04-18 19:42:45.170540
 current #epochs=1, #steps=0
+Epoch: [1][100/3050]	Per Sample Total Time 23.23014	Per Sample Data Time 23.18684	Per Sample DNN Time 0.04330	Train Loss 32.7127	
+0
+Epoch: [1][200/3050]	Per Sample Total Time 37.13187	Per Sample Data Time 37.10013	Per Sample DNN Time 0.03175	Train Loss 26.1371	
