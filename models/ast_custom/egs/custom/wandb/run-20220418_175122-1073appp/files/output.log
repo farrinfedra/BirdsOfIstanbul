@@ -1,0 +1,25 @@
+now train a audio spectrogram transformer model
+balanced sampler is not used
+---------------the train dataloader---------------
+now using following mask: 24 freq, 96 time
+now using mix-up with rate 0.000000
+now process custom
+use dataset mean -5.519 and std 4.572 to normalize the input.
+number of classes is 21
+---------------the evaluation dataloader---------------
+now using following mask: 0 freq, 0 time
+now using mix-up with rate 0.000000
+now process custom
+use dataset mean -5.519 and std 4.572 to normalize the input.
+number of classes is 21
+---------------AST Model Summary---------------
+ImageNet pretraining: True, AudioSet pretraining: True
+frequncey stride=10, time stride=10
+number of patches=600
+Creating experiment directory: ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm/fold1
+Traceback (most recent call last):
+  File "/scratch/users/fsofian19/COMP491_model/models/ast_custom/egs/custom/../../src/run.py", line 139, in <module>
+    os.makedirs("%s/models" % args.exp_dir)
+  File "/kuacc/users/fsofian19/.conda/envs/ast_env/lib/python3.9/os.py", line 225, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: './exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm/fold1/models'

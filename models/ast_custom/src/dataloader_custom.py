@@ -298,19 +298,22 @@ class AudiosetDataset(Dataset):
         nframes is an integer
         """
         datum = self.data[index]
+
         label_indices = np.zeros(self.label_num)
         label_weights = np.full(self.label_num,0.05)
-        
-        #label_weights = np.ones(self.label_num)
+
+
         
         fbank, mix_lambda = self._wav2fbank2(datum['wav'],datum['segment'])
         for index,label_str in enumerate (datum['labels'].split('-')):
             label_indices[int(self.index_dict[label_str])] = 1.0
             label_weights[int(self.index_dict[label_str])] = 1.0
-        
+
         sec_labels = datum['sec_labels']
+
+
         for sec_label in sec_labels:
-            label_weights[int(self.index_dict[sec_label])] = 0.0
+             label_weights[int(self.index_dict[sec_label])] = 0.0
 
 
 

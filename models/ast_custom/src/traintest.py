@@ -51,8 +51,8 @@ def train(audio_model, train_loader, test_loader, args):
 
     audio_model = audio_model.to(device)
 
-    
-    path = '../models/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
+
+    path = '/kuacc/users/fsofian19/COMP491_model/models/ast_custom/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
     sd = torch.load(path, map_location=device)
 
 

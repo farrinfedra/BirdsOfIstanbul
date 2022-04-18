@@ -1,0 +1,15 @@
+2022-04-18 19:41:10,889 INFO    MainThread:123568 [wandb_setup.py:_flush():71] setting env: {}
+2022-04-18 19:41:10,912 INFO    MainThread:123568 [wandb_setup.py:_flush():71] setting login settings: {}
+2022-04-18 19:41:10,914 INFO    MainThread:123568 [wandb_init.py:_log_setup():371] Logging user logs to /scratch/users/fsofian19/COMP491_model/models/ast_custom/egs/custom/wandb/run-20220418_194110-1br43wsc/logs/debug.log
+2022-04-18 19:41:10,915 INFO    MainThread:123568 [wandb_init.py:_log_setup():372] Logging internal logs to /scratch/users/fsofian19/COMP491_model/models/ast_custom/egs/custom/wandb/run-20220418_194110-1br43wsc/logs/debug-internal.log
+2022-04-18 19:41:10,916 INFO    MainThread:123568 [wandb_init.py:init():404] calling init triggers
+2022-04-18 19:41:10,917 INFO    MainThread:123568 [wandb_init.py:init():409] wandb.init called with sweep_config: {}
+config: {}
+2022-04-18 19:41:10,917 INFO    MainThread:123568 [wandb_init.py:init():460] starting backend
+2022-04-18 19:41:10,918 INFO    MainThread:123568 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-04-18 19:41:10,961 INFO    MainThread:123568 [backend.py:ensure_launched():216] starting backend process...
+2022-04-18 19:41:10,981 INFO    MainThread:123568 [backend.py:ensure_launched():221] started backend process with pid: 123640
+2022-04-18 19:41:10,991 INFO    MainThread:123568 [wandb_init.py:init():469] backend started and connected
+2022-04-18 19:41:11,001 INFO    MainThread:123568 [wandb_init.py:init():533] updated telemetry
+2022-04-18 19:41:11,089 INFO    MainThread:123568 [wandb_init.py:init():563] communicating current version
+2022-04-18 19:41:16,092 INFO    MainThread:123568 [wandb_init.py:init():578] communicating run to backend with 30 second timeout

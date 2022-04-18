@@ -6,10 +6,12 @@
 #SBATCH -c 4
 #SBATCH -n 1
 #SBATCH --mem=190G
-#SBATCH --job-name="ast-custom"
+#SBATCH --job-name="istangull"
 #SBATCH --output=./log_%j.txt
 #SBATCH --time=24:00:00
 
+module load anaconda/3.21.05
+module load gcc/9.3.0
 set -x
 # comment this line if not running on sls cluster
 #. /data/sls/scratch/share-201907/slstoolchainrc
@@ -36,7 +38,7 @@ epoch=6
 batch_size=48 #48 experiment with gpu memory 
 fstride=10 
 tstride=10
-base_exp_dir=./exp/test-${dataset}-f$fstride-t$tstride-imp$imagenetpretrain-asp$audiosetpretrain-b$batch_size-lr${lr}-$epoch-istangull_ncd_sm
+base_exp_dir=./exp/train-${dataset}-f$fstride-t$tstride-imp$imagenetpretrain-asp$audiosetpretrain-b$batch_size-lr${lr}-$epoch-istangull_ncd_sm
 
 if [ -d $base_exp_dir ]; then
   echo 'exp exist'
