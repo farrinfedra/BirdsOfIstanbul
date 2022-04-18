@@ -69,7 +69,7 @@ parser.add_argument('--audioset_pretrain', help='if use ImageNet and audioset pr
 args = parser.parse_args()
 
 
-wandb.init(project="ast-bc2022-152classes-from-scratch")
+wandb.init(project="istangul-sm-dataset")
 wandb.config = {"learning_rate": 1e-5, "epochs": 25, "batch_size": 48} # change this later on
 
 
@@ -77,7 +77,7 @@ wandb.config = {"learning_rate": 1e-5, "epochs": 25, "batch_size": 48} # change 
 if args.model == 'ast':
     print('now train a audio spectrogram transformer model')
     # dataset spectrogram mean and std, used to normalize the input
-    norm_stats = {'audioset':[-4.2677393, 4.5689974], 'esc50':[-6.6268077, 5.358466], 'speechcommands':[-6.845978, 5.5654526],'custom':[-6.0138397, 4.589279]} #
+    norm_stats = {'audioset':[-4.2677393, 4.5689974], 'esc50':[-6.6268077, 5.358466], 'speechcommands':[-6.845978, 5.5654526],'custom':[-5.5194726, 4.5720654]} #
     target_length = {'audioset':1024, 'esc50':512, 'speechcommands':128,'custom':512}
     # if add noise for data augmentation, only use for speech commands
     noise = {'audioset': False, 'esc50': False, 'speechcommands':True, 'custom':False}
@@ -88,7 +88,7 @@ if args.model == 'ast':
 
 
     # weighted random sampling part is here
-    bal = True
+    bal = False
     if bal == True :    #arg.bal in normal case
         print('balanced sampler is being used')
         

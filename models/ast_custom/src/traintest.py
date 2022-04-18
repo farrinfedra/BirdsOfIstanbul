@@ -52,22 +52,23 @@ def train(audio_model, train_loader, test_loader, args):
     audio_model = audio_model.to(device)
 
     
-    path = './exp/test-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-16-bc_22-152-classes-run1/models/best_audio_model.pth'
+    path = '../models/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
     sd = torch.load(path, map_location=device)
 
 
     audio_model.load_state_dict(sd,strict=False)
-    print('state dict to model completed')
+    print('state dict to model completed => pretrained weights loaded')
+    #print(audio_model.named_parameters())
 
 
-    for name, param in audio_model.named_parameters():
-        if 'module.v' in name:   # freezing the layers before classification 
-            param.requires_grad = False
-        else:
-            print('not freezing:')
-            print(name)
-            param.requires_grad = True
-    
+    #for name, param in audio_model.named_parameters(): #delete
+    #    if 'module.v' in name:   # freezing the layers before classification 
+    #        param.requires_grad = False
+    #    else:
+    #        print('not freezing:')
+    #        print(name)
+    #        param.requires_grad = True
+    #sys.exit()
     # Set up the optimizer
     trainables = [p for p in audio_model.parameters() if p.requires_grad]
     print('Total parameter number is : {:.3f} million'.format(sum(p.numel() for p in audio_model.parameters()) / 1e6))
@@ -130,7 +131,7 @@ def train(audio_model, train_loader, test_loader, args):
             audio_input = audio_input.to(device, non_blocking=True)
             labels = labels.to(device, non_blocking=True)
             label_weights = label_weights.to(device, non_blocking=True)
-
+            
             data_time.update(time.time() - end_time)
             per_sample_data_time.update((time.time() - end_time) / audio_input.shape[0])
             dnn_start_time = time.time()

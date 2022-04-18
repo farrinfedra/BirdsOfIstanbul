@@ -46,7 +46,7 @@ if [ -d $base_exp_dir ]; then
 fi
 mkdir -p $exp_dir
 
-for((fold=1;fold<=1;fold++)); #1 fold for now
+for((fold=1;fold<=1;fold++)); #change this to 5 folds
 do
   echo 'now process fold'${fold}
 

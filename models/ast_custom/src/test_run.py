@@ -117,7 +117,7 @@ parser.add_argument("--fstride", type=int, default=10, help="soft split freq str
 parser.add_argument("--tstride", type=int, default=10, help="soft split time stride, overlap=patch_size-stride")
 parser.add_argument('--imagenet_pretrain', help='if use ImageNet pretrained audio spectrogram transformer model', type=ast.literal_eval, default='True')
 parser.add_argument('--audioset_pretrain', help='if use ImageNet and audioset pretrained audio spectrogram transformer model', type=ast.literal_eval, default='True')
-parser.add_argument("--n_class", type=int, default=398, help="number of classes")
+parser.add_argument("--n_class", type=int, default=399, help="number of classes")
 parser.add_argument('-b', '--batch-size', default=36, type=int, metavar='N', help='mini-batch size')
 parser.add_argument('-w', '--num-workers', default=32, type=int, metavar='NW', help='# of workers for dataloading (default: 32)')
 
