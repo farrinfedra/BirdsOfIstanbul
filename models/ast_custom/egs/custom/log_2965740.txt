@@ -1,0 +1,158 @@
++ export TORCH_HOME=../../pretrained_models
++ TORCH_HOME=../../pretrained_models
++ model=ast
++ dataset=custom
++ nocall=True
++ timetest = True
+/var/spool/slurm/d/job2965740/slurm_script: line 24: timetest: command not found
++ imagenetpretrain=True
++ audiosetpretrain=True
++ bal=True
++ '[' True == True ']'
++ lr=1e-5
++ freqm=24
++ timem=96
++ mixup=0
++ epoch=6
++ batch_size=48
++ fstride=10
++ tstride=10
++ base_exp_dir=./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold
++ '[' -d ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold ']'
++ mkdir -p
+mkdir: missing operand
+Try 'mkdir --help' for more information.
++ (( fold=1 ))
++ (( fold<=1 ))
++ echo 'now process fold1'
+now process fold1
++ exp_dir=./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold/fold1
++ tr_data=./data/datafiles/custom_train_data_1.json
++ te_data=./data/datafiles/custom_eval_data_1.json
++ CUDA_CACHE_DISABLE=1
++ python -W ignore ../../src/run.py --model ast --dataset custom --data-train ./data/datafiles/custom_train_data_1.json --data-val ./data/datafiles/custom_eval_data_1.json --exp-dir ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold/fold1 --label-csv ./data/custom_labels.csv --n_class 21 --lr 1e-5 --n-epochs 6 --batch-size 48 --save_model False --freqm 24 --timem 96 --mixup 0 --bal True --tstride 10 --fstride 10 --imagenet_pretrain True --audioset_pretrain True
+wandb: Currently logged in as: birdsongs (use `wandb login --relogin` to force relogin)
+I am process 73663, running on ai07.kuacc.ku.edu.tr: starting (Mon Apr 18 21:01:48 2022)
+wandb: Tracking run with wandb version 0.12.9
+wandb: Syncing run curious-feather-26
+wandb:  View project at https://wandb.ai/birdsongs/istangul-sm-dataset
+wandb:  View run at https://wandb.ai/birdsongs/istangul-sm-dataset/runs/ef0h2gdb
+wandb: Run data is saved locally in /scratch/users/fsofian19/COMP491_model/models/ast_custom/egs/custom/wandb/run-20220418_210149-ef0h2gdb
+wandb: Run `wandb offline` to turn off syncing.
+
+now train a audio spectrogram transformer model
+balanced sampler is not used
+---------------the train dataloader---------------
+now using following mask: 24 freq, 96 time
+now using mix-up with rate 0.000000
+now process custom
+use dataset mean -5.519 and std 4.572 to normalize the input.
+number of classes is 21
+---------------the evaluation dataloader---------------
+now using following mask: 0 freq, 0 time
+now using mix-up with rate 0.000000
+now process custom
+use dataset mean -5.519 and std 4.572 to normalize the input.
+number of classes is 21
+---------------AST Model Summary---------------
+ImageNet pretraining: True, AudioSet pretraining: True
+frequncey stride=10, time stride=10
+number of patches=600
+
+Creating experiment directory: ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold/fold1
+Now starting training for 6 epochs
+2022-04-18 21:02:15.262679
+running on cuda
+state dict to model completed => pretrained weights loaded
+Total parameter number is : 87.273 million
+Total trainable parameter number is : 87.273 million
+scheduler for custom dataset is used
+now training with custom, main metrics: mAP, loss function: BCEWithLogitsLoss(), learning rate scheduler: <torch.optim.lr_scheduler.MultiStepLR object at 0x7ff89c747b50>
+current #steps=0, #epochs=1
+start training...
+---------------
+2022-04-18 21:02:15.687553
+current #epochs=1, #steps=0
+Epoch: [1][100/3050]	Per Sample Total Time 22.39515	Per Sample Data Time 22.35512	Per Sample DNN Time 0.04003	Train Loss 31.2053	
+0
+Epoch: [1][200/3050]	Per Sample Total Time 36.53149	Per Sample Data Time 36.50160	Per Sample DNN Time 0.02989	Train Loss 25.3242	
+0
+Epoch: [1][300/3050]	Per Sample Total Time 49.92475	Per Sample Data Time 49.89824	Per Sample DNN Time 0.02651	Train Loss 22.3977	
+0
+Epoch: [1][400/3050]	Per Sample Total Time 63.03615	Per Sample Data Time 63.01131	Per Sample DNN Time 0.02484	Train Loss 20.4687	
+0
+Epoch: [1][500/3050]	Per Sample Total Time 76.13091	Per Sample Data Time 76.10702	Per Sample DNN Time 0.02389	Train Loss 19.1516	
+0
+Epoch: [1][600/3050]	Per Sample Total Time 89.46037	Per Sample Data Time 89.43716	Per Sample DNN Time 0.02321	Train Loss 18.1362	
+0
+Epoch: [1][700/3050]	Per Sample Total Time 103.07494	Per Sample Data Time 103.05225	Per Sample DNN Time 0.02269	Train Loss 17.3907	
+0
+Epoch: [1][800/3050]	Per Sample Total Time 116.77078	Per Sample Data Time 116.74841	Per Sample DNN Time 0.02237	Train Loss 16.7015	
+wandb: Network error (ReadTimeout), entering retry loop.
+wandb: ERROR Error while calling W&B API: Error 1040: Too many connections (<Response [500]>)
+0
+Epoch: [1][900/3050]	Per Sample Total Time 130.43315	Per Sample Data Time 130.41106	Per Sample DNN Time 0.02209	Train Loss 16.1212	
+0
+Epoch: [1][1000/3050]	Per Sample Total Time 144.07009	Per Sample Data Time 144.04824	Per Sample DNN Time 0.02185	Train Loss 15.6069	
+0
+Epoch: [1][1100/3050]	Per Sample Total Time 157.64355	Per Sample Data Time 157.62196	Per Sample DNN Time 0.02159	Train Loss 15.1856	
+0
+Epoch: [1][1200/3050]	Per Sample Total Time 170.98378	Per Sample Data Time 170.96235	Per Sample DNN Time 0.02143	Train Loss 14.7809	
+0
+Epoch: [1][1300/3050]	Per Sample Total Time 184.32615	Per Sample Data Time 184.30489	Per Sample DNN Time 0.02126	Train Loss 14.4581	
+0
+Epoch: [1][1400/3050]	Per Sample Total Time 197.58580	Per Sample Data Time 197.56469	Per Sample DNN Time 0.02112	Train Loss 14.1291	
+0
+Epoch: [1][1500/3050]	Per Sample Total Time 210.73438	Per Sample Data Time 210.71336	Per Sample DNN Time 0.02102	Train Loss 13.9038	
+0
+Epoch: [1][1600/3050]	Per Sample Total Time 223.90003	Per Sample Data Time 223.87908	Per Sample DNN Time 0.02095	Train Loss 13.6088	
+0
+Epoch: [1][1700/3050]	Per Sample Total Time 237.08019	Per Sample Data Time 237.05936	Per Sample DNN Time 0.02083	Train Loss 13.3424	
+wandb: Network error (ReadTimeout), entering retry loop.
+0
+Epoch: [1][1800/3050]	Per Sample Total Time 250.16660	Per Sample Data Time 250.14586	Per Sample DNN Time 0.02075	Train Loss 13.1117	
+0
+Epoch: [1][1900/3050]	Per Sample Total Time 263.15356	Per Sample Data Time 263.13288	Per Sample DNN Time 0.02069	Train Loss 12.9076	
+0
+Epoch: [1][2000/3050]	Per Sample Total Time 276.04032	Per Sample Data Time 276.01968	Per Sample DNN Time 0.02064	Train Loss 12.7179	
+0
+Epoch: [1][2100/3050]	Per Sample Total Time 288.98756	Per Sample Data Time 288.96697	Per Sample DNN Time 0.02059	Train Loss 12.5310	
+0
+Epoch: [1][2200/3050]	Per Sample Total Time 301.92682	Per Sample Data Time 301.90627	Per Sample DNN Time 0.02056	Train Loss 12.3506	
+0
+Epoch: [1][2300/3050]	Per Sample Total Time 314.92721	Per Sample Data Time 314.90672	Per Sample DNN Time 0.02049	Train Loss 12.1792	
+0
+Epoch: [1][2400/3050]	Per Sample Total Time 327.90155	Per Sample Data Time 327.88111	Per Sample DNN Time 0.02044	Train Loss 12.0289	
+0
+Epoch: [1][2500/3050]	Per Sample Total Time 340.84222	Per Sample Data Time 340.82180	Per Sample DNN Time 0.02042	Train Loss 11.8624	
+0
+Epoch: [1][2600/3050]	Per Sample Total Time 353.77246	Per Sample Data Time 353.75206	Per Sample DNN Time 0.02039	Train Loss 11.7223	
+0
+Epoch: [1][2700/3050]	Per Sample Total Time 366.67532	Per Sample Data Time 366.65495	Per Sample DNN Time 0.02037	Train Loss 11.5802	
+0
+Epoch: [1][2800/3050]	Per Sample Total Time 379.60674	Per Sample Data Time 379.58641	Per Sample DNN Time 0.02033	Train Loss 11.4417	
+0
+Epoch: [1][2900/3050]	Per Sample Total Time 392.47790	Per Sample Data Time 392.45758	Per Sample DNN Time 0.02032	Train Loss 11.3109	
+wandb: Network error (ReadTimeout), entering retry loop.
+0
+Epoch: [1][3000/3050]	Per Sample Total Time 405.30526	Per Sample Data Time 405.28495	Per Sample DNN Time 0.02031	Train Loss 11.1908	
+/datasets/xeno_canto/sm_dataset/562658.wav 0
+/datasets/xeno_canto/sm_dataset/140553.wav 0
+/datasets/xeno_canto/sm_dataset/579375.wav 0
+/datasets/xeno_canto/sm_dataset/422052.wav 0
+/datasets/xeno_canto/sm_dataset/373563.wav 0
+/datasets/xeno_canto/sm_dataset/381263.wav 0
+/datasets/xeno_canto/sm_dataset/591241.wav 0
+/datasets/xeno_canto/sm_dataset/240497.wav 0
+/datasets/xeno_canto/sm_dataset/422010.wav 0
+/datasets/xeno_canto/sm_dataset/263550.wav 0
+/datasets/xeno_canto/sm_dataset/377663.wav 0
+/datasets/xeno_canto/sm_dataset/560149.wav 0
+/datasets/xeno_canto/sm_dataset/448264.wav 0
+/datasets/xeno_canto/sm_dataset/477943.wav 0
+/datasets/xeno_canto/sm_dataset/317213.wav 0
+0
+inside validate
+slurmstepd: error: Job 2965740 exceeded memory limit (199555352 > 199229440), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 2965740 ON ai07 CANCELLED AT 2022-04-19T08:28:56 ***

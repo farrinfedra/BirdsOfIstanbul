@@ -221,56 +221,6 @@ def train(audio_model, train_loader, test_loader, args):
         if best_epoch == epoch:
             torch.save(audio_model.state_dict(), "%s/models/best_audio_model.pth" % (exp_dir))
             torch.save(optimizer.state_dict(), "%s/models/best_optim_state.pth" % (exp_dir))
-        # ensemble results
-#         cum_stats = validate_ensemble(args, epoch)
-#         cum_mAP = np.mean([stat['AP'] for stat in cum_stats])
-#         cum_mAUC = np.mean([stat['auc'] for stat in cum_stats])
-#         cum_acc = cum_stats[0]['acc']
-
-#         mAP = np.mean([stat['AP'] for stat in stats])
-#         mAUC = np.mean([stat['auc'] for stat in stats])
-#         acc = stats[0]['acc']
-
-#         f1 = np.mean([stat['f1'] for stat in stats])
-        
-#         middle_ps = [stat['precisions'][int(len(stat['precisions'])/2)] for stat in stats]
-#         middle_rs = [stat['recalls'][int(len(stat['recalls'])/2)] for stat in stats]
-#         average_precision = np.mean(middle_ps)
-#         average_recall = np.mean(middle_rs)
-
-#         if main_metrics == 'mAP':
-#             print("mAP: {:.6f}".format(mAP))
-#         else:
-#             print("acc: {:.6f}".format(acc))
-#         print("AUC: {:.6f}".format(mAUC))
-#         print("Avg Precision: {:.6f}".format(average_precision))
-#         print("Avg Recall: {:.6f}".format(average_recall))
-#         print("d_prime: {:.6f}".format(d_prime(mAUC)))
-#         print("train_loss: {:.6f}".format(loss_meter.avg))
-#         print("valid_loss: {:.6f}".format(valid_loss))
-
-
-        
-#         stats_train, _ = validate(audio_model, train_loader, args, epoch)
-        
-#         f1_2 = stats_train[0]
-#         avg_precision_2 = stats_train[1]
-#         avg_recall_2 = stats_train[2]
-        
-#         print("train set f1: {:.6f}".format(f1_2))
-#         print("train set avg_precision_score: {:.6f}".format(avg_precision_2))
-#         print("train set avg_recall_score: {:.6f}".format(avg_recall_2))
-
-        
-       
-        
-#         if main_metrics == 'mAP':
-#             result[epoch-1, :] = [mAP, mAUC, average_precision, average_recall, d_prime(mAUC), loss_meter.avg, valid_loss, cum_mAP, cum_mAUC, optimizer.param_groups[0]['lr']]
-#         else:
-#             result[epoch-1, :] = [acc, mAUC, average_precision, average_recall, d_prime(mAUC), loss_meter.avg, valid_loss, cum_acc, cum_mAUC, optimizer.param_groups[0]['lr']]
-#         np.savetxt(exp_dir + '/result.csv', result, delimiter=',')
-#         print('validation finished')
-
 
 
         torch.save(audio_model.state_dict(), "%s/models/audio_model.%d.pth" % (exp_dir, epoch))

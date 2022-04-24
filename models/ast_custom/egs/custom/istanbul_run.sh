@@ -38,7 +38,7 @@ epoch=6
 batch_size=48 #48 experiment with gpu memory 
 fstride=10 
 tstride=10
-base_exp_dir=./exp/train-${dataset}-f$fstride-t$tstride-imp$imagenetpretrain-asp$audiosetpretrain-b$batch_size-lr${lr}-$epoch-istangull_ncd_sm
+base_exp_dir=./exp/train-${dataset}-f$fstride-t$tstride-imp$imagenetpretrain-asp$audiosetpretrain-b$batch_size-lr${lr}-$epoch-istangull_ncd_sm_1fold
 
 if [ -d $base_exp_dir ]; then
   echo 'exp exist'
@@ -46,7 +46,7 @@ if [ -d $base_exp_dir ]; then
 fi
 mkdir -p $exp_dir
 
-for((fold=1;fold<=5;fold++)); #change this to 5 folds
+for((fold=1;fold<=1;fold++)); #change this to 5 folds
 do
   echo 'now process fold'${fold}
 
