@@ -31,7 +31,7 @@ import torch.nn as nn
 from torch.cuda.amp import autocast
 import os
 import soundfile as sf
-
+import tracemalloc
 
 PERIOD = 5
 IMAGE_HEIGHT = 256
@@ -208,88 +208,7 @@ class AudiosetDataset(Dataset):
             
             
         return fbank, 0
-
-        
-#     def plot_mel_fbank(fbank, title=None):
-#         fig, axs = plt.subplots(1, 1)
-#         axs.set_title(title or 'Filter bank')
-#         axs.imshow(fbank, aspect='auto')
-#         axs.set_ylabel('frequency bin')
-#         axs.set_xlabel('mel bin')
-#         plt.show(block=False)
-
-
-
-
     
-    def get_melspec(self,data_path, sample, train_aug, no_calls, other_samples, display=None):
-        sr = SR
-
-        if train_aug is not None:
-            sr_scale_max = 1.1
-            sr_scale_min = 1 / sr_scale_max
-            sr_scale = sr_scale_min + (sr_scale_max - sr_scale_min)*np.random.random_sample()
-            sr = int(sr*sr_scale)
-        sr = max(32000, sr)
-
-        period = PERIOD * sr
-        if train_aug is not None:
-            freq_scale_max = 1.1
-            freq_scale_min = 1 / freq_scale_max
-            freq_scale = freq_scale_min + (freq_scale_max - freq_scale_min)*np.random.random_sample()
-            period = int(np.round(period * freq_scale))
-
-        clip = self.get_soundscape_clip(data_path, sample, period, train_aug)
-        if other_samples is not None:
-            for another_sample in other_samples:
-                another_clip = self.get_soundscape_clip(data_path, another_sample, period, train_aug)
-                weight = np.random.random_sample() * 0.8 + 0.2
-                clip = clip + weight*another_clip
-
-        if no_calls is not None:
-            no_calls = no_calls[SR]
-            no_calls_clip = np.random.choice(no_calls)
-            no_calls_length = no_calls_clip.shape[0]
-            no_calls_period = period
-            no_calls_start = np.random.randint(no_calls_length - no_calls_period)
-            no_calls_clip = no_calls_clip[no_calls_start : no_calls_start + no_calls_period]
-            clip = clip + np.random.random_sample() * no_calls_clip
-
-#         if train_aug is not None:
-#             clip = train_aug(clip, sample_rate=sr)
-
-        n_fft = 1024
-        win_length = n_fft#//2
-        hop_length = int((len(clip) - win_length + n_fft) / IMAGE_WIDTH) + 1 
-        spect = np.abs(librosa.stft(y=clip, n_fft=n_fft, hop_length=hop_length, win_length=win_length))
-        if spect.shape[1] < IMAGE_WIDTH:
-            #print('too large hop length, len(clip)=', len(clip))
-            hop_length = hop_length - 1
-            spect = np.abs(librosa.stft(y=clip, n_fft=n_fft, hop_length=hop_length, win_length=win_length))
-        if spect.shape[1] > IMAGE_WIDTH:
-            spect = spect[:, :IMAGE_WIDTH]
-        n_mels = IMAGE_HEIGHT // 2
-        if train_aug is not None:
-            power = 1.5 + np.random.rand()
-            spect = np.power(spect, power)
-        else:
-            spect = np.square(spect)
-        spect = librosa.feature.melspectrogram(S=spect, sr=sr, n_fft=n_fft, n_mels=n_mels, fmin=300, fmax=16000)
-        spect = librosa.power_to_db(spect)
-        #print(spect.shape)
-        spect = resize(spect, (IMAGE_HEIGHT, IMAGE_WIDTH), preserve_range=True, anti_aliasing=True)
-        spect = spect - spect.min()
-        smax = spect.max()
-        if smax >= 0.001:
-            spect = spect / smax
-        else:
-            spect[...] = 0
-        if display:
-            plt.imshow(spect,cmap='gray')
-            plt.show()
-        # clip, sr = librosa.load(path, sr=None, mono=False)
-        return spect
-        
     def __getitem__(self, index):
         """
         returns: image, audio, nframes
@@ -297,11 +216,13 @@ class AudiosetDataset(Dataset):
         audio is a FloatTensor of size (N_freq, N_frames) for spectrogram, or (N_frames) for waveform
         nframes is an integer
         """
+        #tracemalloc.start()
+        #snapshot1 = tracemalloc.take_snapshot()
         datum = self.data[index]
 
         label_indices = np.zeros(self.label_num)
         label_weights = np.full(self.label_num,0.05)
-
+        
 
         
         fbank, mix_lambda = self._wav2fbank2(datum['wav'],datum['segment'])
@@ -316,14 +237,13 @@ class AudiosetDataset(Dataset):
              label_weights[int(self.index_dict[sec_label])] = 0.0
 
 
-
+        
+        #print(type(label_indices))
 #             if index == 0:
 #                 label_indices[int(self.index_dict[label_str])] = datum['prob']
 #             else:
 #                 label_indices[int(self.index_dict[label_str])] = datum['prob']*0.6
 
-        label_indices = torch.FloatTensor(label_indices)
-        label_weights = torch.FloatTensor(label_weights)
 
         # SpecAug, not do for eval set
         freqm = torchaudio.transforms.FrequencyMasking(self.freqm)
@@ -357,12 +277,15 @@ class AudiosetDataset(Dataset):
 #         filename = datum['wav'].split('/')[-1]
 #         segment = datum['segment']
 
-
+        #top_stats = snapshot2.compare_to(snapshot1, 'lineno')
+        #print("[ Top 10 differences ]")
+        #for stat in top_stats[:10]:
+         #   print(stat)
         if fbank.shape[0] != 512:  #todo vmlocate to discard or debug, only a few segments are problematic for some reason
-            print(datum['wav'],0)
+            #print(datum['wav'],0)
             return torch.zeros(512, fbank.shape[1]), label_indices, label_weights 
-        
-        return fbank, label_indices, label_weights  
+
+        return fbank, label_indices, label_weights
 
     def __len__(self):
         return len(self.data)

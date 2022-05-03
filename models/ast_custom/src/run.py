@@ -40,7 +40,7 @@ parser.add_argument("--data-train", type=str, default='', help="training data js
 parser.add_argument("--data-val", type=str, default='', help="validation data json")
 parser.add_argument("--data-eval", type=str, default='', help="evaluation data json")
 parser.add_argument("--label-csv", type=str, default='', help="csv with class labels")
-parser.add_argument("--n_class", type=int, default=527, help="number of classes")
+parser.add_argument("--n_class", type=int, default=21, help="number of classes")
 parser.add_argument("--model", type=str, default='ast', help="the model used")
 parser.add_argument("--dataset", type=str, default="audioset", help="the dataset used", choices=["audioset", "esc50", "speechcommands","custom"])
 
@@ -48,7 +48,7 @@ parser.add_argument("--exp-dir", type=str, default="", help="directory to dump e
 parser.add_argument('--lr', '--learning-rate', default=0.001, type=float, metavar='LR', help='initial learning rate')
 parser.add_argument("--optim", type=str, default="adam", help="training optimizer", choices=["sgd", "adam"])
 parser.add_argument('-b', '--batch-size', default=12, type=int, metavar='N', help='mini-batch size')
-parser.add_argument('-w', '--num-workers', default=32, type=int, metavar='NW', help='# of workers for dataloading (default: 32)')
+parser.add_argument('-w', '--num-workers', default=8, type=int, metavar='NW', help='# of workers for dataloading (default: 8)')
 parser.add_argument("--n-epochs", type=int, default=1, help="number of maximum training epochs")
 # not used in the formal experiments
 parser.add_argument("--lr_patience", type=int, default=2, help="how many epoch to wait to reduce lr if mAP doesn't improve")
@@ -69,8 +69,8 @@ parser.add_argument('--audioset_pretrain', help='if use ImageNet and audioset pr
 args = parser.parse_args()
 
 
-wandb.init(project="istangul-sm-dataset")
-wandb.config = {"learning_rate": 1e-5, "epochs": 25, "batch_size": 48} # fix to 6
+wandb.init(project="istangul-sm-dataset-40")
+wandb.config = {"learning_rate": 1e-5, "epochs": 6, "batch_size": 48} # fix to 6
 
 
 # transformer based model

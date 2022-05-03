@@ -1,3 +1,6 @@
+"""
+This script converts audio in a directory to wav format and then resamples them to 16000Hz which is required by the model.
+"""
 import os
 from tqdm import tqdm
 

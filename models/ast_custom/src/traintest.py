@@ -126,7 +126,8 @@ def train(audio_model, train_loader, test_loader, args):
         print(datetime.datetime.now())
         print("current #epochs=%s, #steps=%s" % (epoch, global_step))
         end_time = time.time()
-        for i, (audio_input, labels, label_weights ) in enumerate(train_loader):            
+        for i, (audio_input, labels, label_weights ) in enumerate(train_loader):
+            
             B = audio_input.size(0)
             audio_input = audio_input.to(device, non_blocking=True)
             labels = labels.to(device, non_blocking=True)
@@ -151,8 +152,8 @@ def train(audio_model, train_loader, test_loader, args):
                     loss = loss_fn(audio_output, labels)
             
             
-            loss = (loss * label_weights).sum() # secondary labels are ignored
-
+            loss = (loss * label_weights).mean() # secondary labels are ignored
+ 
             
             # optimization if amp is not used
             # optimizer.zero_grad()
@@ -187,8 +188,8 @@ def train(audio_model, train_loader, test_loader, args):
                 
                 wandb.log({"Train loss":loss_meter.avg})
                 
-                
-                print(gc.collect())
+                #gc.collect()
+
                 #subprocess.call("nvidia-smi",shell=True)
 
                 if np.isnan(loss_meter.avg):
@@ -197,8 +198,8 @@ def train(audio_model, train_loader, test_loader, args):
 
 
                 
-            global_step += 1
-            
+            global_step += 1  
+            ##here sth
         stats, valid_loss = validate(audio_model, test_loader, args, epoch)
 
         f1 = stats[0]
@@ -284,14 +285,15 @@ def validate(audio_model, val_loader, args, epoch):
             else:
                 loss = args.loss_fn(audio_output, labels)
             
-            loss = (loss * label_weights).sum()
+            loss = (loss * label_weights).mean()
             A_loss.append(loss.to('cpu').detach())
 
             batch_time.update(time.time() - end)
             end = time.time()
-        
+            
         
         audio_output = torch.cat(A_predictions)
+        print(audio_output)
         target = torch.cat(A_targets)
         loss = np.mean(A_loss)
         stats = calculate_stats(audio_output, target)
@@ -304,48 +306,3 @@ def validate(audio_model, val_loader, args, epoch):
 
     return stats, loss
 
-def validate_ensemble(args, epoch):
-    exp_dir = args.exp_dir
-    target = np.loadtxt(exp_dir+'/predictions/target.csv', delimiter=',')
-    if epoch == 1:
-        cum_predictions = np.loadtxt(exp_dir + '/predictions/predictions_1.csv', delimiter=',')
-    else:
-        cum_predictions = np.loadtxt(exp_dir + '/predictions/cum_predictions.csv', delimiter=',') * (epoch - 1)
-        predictions = np.loadtxt(exp_dir+'/predictions/predictions_' + str(epoch) + '.csv', delimiter=',')
-        cum_predictions = cum_predictions + predictions
-        # remove the prediction file to save storage space
-        os.remove(exp_dir+'/predictions/predictions_' + str(epoch-1) + '.csv')
-
-    cum_predictions = cum_predictions / epoch
-    np.savetxt(exp_dir+'/predictions/cum_predictions.csv', cum_predictions, delimiter=',')
-
-    stats = calculate_stats(cum_predictions, target)
-    return stats
-
-def validate_wa(audio_model, val_loader, args, start_epoch, end_epoch):
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    exp_dir = args.exp_dir
-
-    sdA = torch.load(exp_dir + '/models/audio_model.' + str(start_epoch) + '.pth', map_location=device)
-
-    model_cnt = 1
-    for epoch in range(start_epoch+1, end_epoch+1):
-        sdB = torch.load(exp_dir + '/models/audio_model.' + str(epoch) + '.pth', map_location=device)
-        for key in sdA:
-            sdA[key] = sdA[key] + sdB[key]
-        model_cnt += 1
-
-        # if choose not to save models of epoch, remove to save space
-        if args.save_model == False:
-            os.remove(exp_dir + '/models/audio_model.' + str(epoch) + '.pth')
-
-    # averaging
-    for key in sdA:
-        sdA[key] = sdA[key] / float(model_cnt)
-
-    audio_model.load_state_dict(sdA)
-
-    torch.save(audio_model.state_dict(), exp_dir + '/models/audio_model_wa.pth')
-
-    stats, loss = validate(audio_model, val_loader, args, 'wa')
-    return stats
