@@ -13,15 +13,15 @@ import dataloader_custom
 audio_conf = {'num_mel_bins': 128, 'target_length': 512, 'freqm': 24, 'timem': 96, 'mixup': 0, 'skip_norm': True, 'mode': 'train', 'dataset': 'custom'}
 
 data_loader = torch.utils.data.DataLoader(
-    dataloader_custom.AudiosetDataset('../egs/custom/data_nocall/datafiles/custom_train_data_1.json', label_csv='../egs/custom/data_nocall/custom_labels.csv',
-                                audio_conf=audio_conf), batch_size=96, shuffle=False, num_workers=8, pin_memory=True)
+    dataloader_custom.AudiosetDataset('../egs/custom/data/datafiles/custom_train_data_1.json', label_csv='../egs/custom/data/custom_labels.csv',
+                                audio_conf=audio_conf), batch_size=48, shuffle=False, num_workers=8, pin_memory=True)
 
 
 
 mean=[]
 std=[]
 
-for i, (audio_input, labels) in enumerate(data_loader):
+for i, (audio_input, labels, label_weights) in enumerate(data_loader):
     print(audio_input)
     print(labels)
     cur_mean = torch.mean(audio_input)

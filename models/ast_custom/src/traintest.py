@@ -52,12 +52,12 @@ def train(audio_model, train_loader, test_loader, args):
     audio_model = audio_model.to(device)
 
 
-    path = '/kuacc/users/fsofian19/COMP491_model/models/ast_custom/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
-    sd = torch.load(path, map_location=device)
+    #path = '/kuacc/users/fsofian19/COMP491_model/models/ast_custom/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
+    #sd = torch.load(path, map_location=device)
 
 
-    audio_model.load_state_dict(sd,strict=False)
-    print('state dict to model completed => pretrained weights loaded')
+    #audio_model.load_state_dict(sd,strict=False)
+    #print('state dict to model completed => pretrained weights loaded')
     #print(audio_model.named_parameters())
 
 
@@ -131,7 +131,15 @@ def train(audio_model, train_loader, test_loader, args):
             B = audio_input.size(0)
             audio_input = audio_input.to(device, non_blocking=True)
             labels = labels.to(device, non_blocking=True)
-            label_weights = label_weights.to(device, non_blocking=True)
+            #label_weights = label_weights.to(device, non_blocking=True)
+            
+            #print("AUDIO INPUT\n")
+            #print(audio_input)
+            #print("\nLABELS\n")
+            #print(labels)
+            #print("\nLABELS WEIGHTS\n")
+            #print(label_weights)
+            #print('----------------------------------------------------------------------------------------------\n')
             
             data_time.update(time.time() - end_time)
             per_sample_data_time.update((time.time() - end_time) / audio_input.shape[0])
@@ -142,18 +150,24 @@ def train(audio_model, train_loader, test_loader, args):
                 warm_lr = (global_step / 1000) * args.lr
                 for param_group in optimizer.param_groups:
                     param_group['lr'] = warm_lr
-                print('warm-up learning rate is {:f}'.format(optimizer.param_groups[0]['lr']))
+                #print('warm-up learning rate is {:f}'.format(optimizer.param_groups[0]['lr']))
 
             with autocast():
                 audio_output = audio_model(audio_input)
+                #print("audio_output is {out}\n".format(out = audio_output))
+                
                 if isinstance(loss_fn, torch.nn.CrossEntropyLoss):
                     loss = loss_fn(audio_output, torch.argmax(labels.long(), axis=1))
+                    #print("USING CROSS ENTROPY LOSS")
                 else:
                     loss = loss_fn(audio_output, labels)
+                    #print('LOSS is {loss}'.format(loss = loss))
+                    
             
-            
-            loss = (loss * label_weights).mean() # secondary labels are ignored
- 
+            loss = loss.mean()
+            #loss = (loss * label_weights).mean() # secondary labels are ignored
+            #print('LOSS after label_weights multiplication is {loss}'.format(loss = loss))
+            print('LOSS is {loss}'.format(loss = loss))
             
             # optimization if amp is not used
             # optimizer.zero_grad()
@@ -271,33 +285,42 @@ def validate(audio_model, val_loader, args, epoch):
 
             # compute output
             audio_output = audio_model(audio_input)
-            audio_output = torch.sigmoid(audio_output)
+            #audio_output = torch.sigmoid(audio_output)
             predictions = audio_output.to('cpu').detach()
 
-            A_predictions.append(predictions)
+            #A_predictions.append(predictions)
             A_targets.append(labels)
 
             # compute the loss
             labels = labels.to(device)
-            label_weights = label_weights.to(device)
+            #label_weights = label_weights.to(device)
             if isinstance(args.loss_fn, torch.nn.CrossEntropyLoss):
                 loss = args.loss_fn(audio_output, torch.argmax(labels.long(), axis=1))
             else:
                 loss = args.loss_fn(audio_output, labels)
             
-            loss = (loss * label_weights).mean()
+            #loss = (loss * label_weights).mean()
+            loss = loss.mean()
+            print('LOSS in validation is {loss}'.format(loss = loss))
             A_loss.append(loss.to('cpu').detach())
-
+            
+            audio_output = torch.sigmoid(audio_output)
+            predictions = audio_output.to('cpu').detach()
+            A_predictions.append(predictions)
+            
             batch_time.update(time.time() - end)
             end = time.time()
             
         
         audio_output = torch.cat(A_predictions)
-        print(audio_output)
+        #print(audio_output)
         target = torch.cat(A_targets)
-        loss = np.mean(A_loss)
+        #loss = np.mean(A_loss) #commented this out since we are using mean above
+        
         stats = calculate_stats(audio_output, target)
         # save the prediction here
+        print("\n----------------------------------------STATS-----------------------------------\n")
+        print(stats)
         exp_dir = args.exp_dir
         if os.path.exists(exp_dir+'/predictions') == False:
             os.mkdir(exp_dir+'/predictions')

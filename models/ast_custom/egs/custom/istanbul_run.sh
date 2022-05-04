@@ -24,7 +24,7 @@ nocall=True
 timetest = True
 imagenetpretrain=True
 audiosetpretrain=True
-bal=True
+bal=False
 if [ $audiosetpretrain == True ]
 then
   lr=1e-5
@@ -38,7 +38,7 @@ epoch=6
 batch_size=48 #48 experiment with gpu memory 
 fstride=10 
 tstride=10
-base_exp_dir=./exp/train-${dataset}-f$fstride-t$tstride-imp$imagenetpretrain-asp$audiosetpretrain-b$batch_size-lr${lr}-$epoch-istangull_ncd_sm_1fold_40
+base_exp_dir=./exp/train-${dataset}-f$fstride-t$tstride-imp$imagenetpretrain-asp$audiosetpretrain-b$batch_size-lr${lr}-$epoch-istangull_ncd_sm_1fold_60
 
 if [ -d $base_exp_dir ]; then
   echo 'exp exist'

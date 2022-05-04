@@ -1,0 +1,39 @@
++ export TORCH_HOME=../../pretrained_models
++ TORCH_HOME=../../pretrained_models
++ model=ast
++ dataset=custom
++ nocall=True
++ timetest = True
+/var/spool/slurm/d/job3201336/slurm_script: line 24: timetest: command not found
++ imagenetpretrain=True
++ audiosetpretrain=True
++ bal=False
++ '[' True == True ']'
++ lr=1e-5
++ freqm=24
++ timem=96
++ mixup=0
++ epoch=6
++ batch_size=48
++ fstride=10
++ tstride=10
++ base_exp_dir=./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold_60
++ '[' -d ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold_60 ']'
++ mkdir -p
+mkdir: missing operand
+Try 'mkdir --help' for more information.
++ (( fold=1 ))
++ (( fold<=1 ))
++ echo 'now process fold1'
+now process fold1
++ exp_dir=./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold_60/fold1
++ tr_data=./data/datafiles/custom_train_data_1.json
++ te_data=./data/datafiles/custom_eval_data_1.json
++ CUDA_CACHE_DISABLE=1
++ python -W ignore ../../src/run.py --model ast --dataset custom --data-train ./data/datafiles/custom_train_data_1.json --data-val ./data/datafiles/custom_eval_data_1.json --exp-dir ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_1fold_60/fold1 --label-csv ./data/custom_labels.csv --n_class 21 --lr 1e-5 --n-epochs 6 --batch-size 48 --save_model False --freqm 24 --timem 96 --mixup 0 --bal False --tstride 10 --fstride 10 --imagenet_pretrain True --audioset_pretrain True
+  File "/scratch/users/fsofian19/COMP491_model/models/ast_custom/egs/custom/../../src/run.py", line 80
+    norm_stats = {'audioset':[-4.2677393, 4.5689974], 'esc50':[-6.6268077, 5.358466], 'speechcommands':[-6.845978, 5.5654526],'custom':[-6.442367 4.1776743]} #
+                                                                                                                                                  ^
+SyntaxError: invalid syntax
++ (( fold++ ))
++ (( fold<=1 ))

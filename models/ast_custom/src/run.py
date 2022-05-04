@@ -77,7 +77,7 @@ wandb.config = {"learning_rate": 1e-5, "epochs": 6, "batch_size": 48} # fix to 6
 if args.model == 'ast':
     print('now train a audio spectrogram transformer model')
     # dataset spectrogram mean and std, used to normalize the input
-    norm_stats = {'audioset':[-4.2677393, 4.5689974], 'esc50':[-6.6268077, 5.358466], 'speechcommands':[-6.845978, 5.5654526],'custom':[-5.5194726, 4.5720654]} #
+    norm_stats = {'audioset':[-4.2677393, 4.5689974], 'esc50':[-6.6268077, 5.358466], 'speechcommands':[-6.845978, 5.5654526],'custom':[-6.442367, 4.1776743]} #
     target_length = {'audioset':1024, 'esc50':512, 'speechcommands':128,'custom':512}
     # if add noise for data augmentation, only use for speech commands
     noise = {'audioset': False, 'esc50': False, 'speechcommands':True, 'custom':False}
