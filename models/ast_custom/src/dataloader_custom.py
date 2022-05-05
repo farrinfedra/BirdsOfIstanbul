@@ -228,13 +228,13 @@ class AudiosetDataset(Dataset):
         fbank, mix_lambda = self._wav2fbank2(datum['wav'],datum['segment'])
         for index,label_str in enumerate (datum['labels'].split('-')):
             label_indices[int(self.index_dict[label_str])] = 1.0
-            label_weights[int(self.index_dict[label_str])] = 1.0
+            #label_weights[int(self.index_dict[label_str])] = 1.0
 
-        sec_labels = datum['sec_labels']
+        #sec_labels = datum['sec_labels']
 
 
-        for sec_label in sec_labels:
-             label_weights[int(self.index_dict[sec_label])] = 0.0
+        #for sec_label in sec_labels:
+         #    label_weights[int(self.index_dict[sec_label])] = 0.0
 
 
         
@@ -283,9 +283,9 @@ class AudiosetDataset(Dataset):
          #   print(stat)
         if fbank.shape[0] != 512:  #todo vmlocate to discard or debug, only a few segments are problematic for some reason
             #print(datum['wav'],0)
-            return torch.zeros(512, fbank.shape[1]), label_indices, label_weights 
+            return torch.zeros(512, fbank.shape[1]), label_indices
 
-        return fbank, label_indices, label_weights
+        return fbank, label_indices
 
     def __len__(self):
         return len(self.data)

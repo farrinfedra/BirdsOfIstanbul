@@ -126,7 +126,7 @@ def train(audio_model, train_loader, test_loader, args):
         print(datetime.datetime.now())
         print("current #epochs=%s, #steps=%s" % (epoch, global_step))
         end_time = time.time()
-        for i, (audio_input, labels, label_weights ) in enumerate(train_loader):
+        for i, (audio_input, labels) in enumerate(train_loader):
             
             B = audio_input.size(0)
             audio_input = audio_input.to(device, non_blocking=True)
@@ -280,7 +280,7 @@ def validate(audio_model, val_loader, args, epoch):
     A_targets = []
     A_loss = []
     with torch.no_grad():
-        for i, (audio_input, labels, label_weights) in enumerate(val_loader):
+        for i, (audio_input, labels) in enumerate(val_loader):
             audio_input = audio_input.to(device)
 
             # compute output
