@@ -52,13 +52,13 @@ def train(audio_model, train_loader, test_loader, args):
     audio_model = audio_model.to(device)
 
 
-    #path = '/kuacc/users/fsofian19/COMP491_model/models/ast_custom/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
-    #sd = torch.load(path, map_location=device)
+    path = '/kuacc/users/fsofian19/COMP491_model/models/ast_custom/pretrained_models/bc_21_5s_best.pth' #laod previous pretrained model
+    sd = torch.load(path, map_location=device)
 
 
-    #audio_model.load_state_dict(sd,strict=False)
-    #print('state dict to model completed => pretrained weights loaded')
-    #print(audio_model.named_parameters())
+    audio_model.load_state_dict(sd,strict=False)
+    print('state dict to model completed => pretrained weights loaded')
+    print(audio_model.named_parameters())
 
 
     #for name, param in audio_model.named_parameters(): #delete
@@ -132,14 +132,7 @@ def train(audio_model, train_loader, test_loader, args):
             audio_input = audio_input.to(device, non_blocking=True)
             labels = labels.to(device, non_blocking=True)
             #label_weights = label_weights.to(device, non_blocking=True)
-            
-            #print("AUDIO INPUT\n")
-            #print(audio_input)
-            #print("\nLABELS\n")
-            #print(labels)
-            #print("\nLABELS WEIGHTS\n")
-            #print(label_weights)
-            #print('----------------------------------------------------------------------------------------------\n')
+        
             
             data_time.update(time.time() - end_time)
             per_sample_data_time.update((time.time() - end_time) / audio_input.shape[0])
@@ -154,6 +147,7 @@ def train(audio_model, train_loader, test_loader, args):
 
             with autocast():
                 audio_output = audio_model(audio_input)
+                
                 #print("audio_output is {out}\n".format(out = audio_output))
                 
                 if isinstance(loss_fn, torch.nn.CrossEntropyLoss):
@@ -210,12 +204,11 @@ def train(audio_model, train_loader, test_loader, args):
                     print("training diverged...")
                     return
 
-
                 
             global_step += 1  
             ##here sth
         stats, valid_loss = validate(audio_model, test_loader, args, epoch)
-
+        """
         f1 = stats[0]
         avg_precision = stats[1]
         avg_recall = stats[2]
@@ -224,9 +217,55 @@ def train(audio_model, train_loader, test_loader, args):
         print("avg_precision_score: {:.6f}".format(avg_precision))
         print("avg_recall_score: {:.6f}".format(avg_recall))
         print("train_loss: {:.6f}".format(loss_meter.avg))
-
+        
         wandb.log({'validation f1_score':f1, "validation avg_precision_score":avg_precision, "validation avg_recall_score":avg_recall})
+        """
+        stat_dict = stats[0]
 
+        
+        
+        
+        precision_micro = stat_dict['precision_micro']
+        precision_macro = stat_dict['precision_macro']
+        precision_classes = stat_dict.pop('precision_classes')
+        
+        recall_micro = stat_dict['recall_micro']
+        recall_macro = stat_dict['recall_macro']
+        recall_classes = stat_dict.pop('recall_classes')
+        
+        f1_micro = stat_dict['f1_micro']
+        f1_macro = stat_dict['f1_macro']
+        f1_classes = stat_dict.pop('f1_classes')
+        
+        
+        print("Precision Micro: {:.6f}".format(precision_micro))
+        print("Precision Macro: {:.6f}".format(precision_macro))
+        print("Recall Micro: {:.6f}".format(recall_micro))
+        print("Recall Macro: {:.6f}".format(recall_macro))
+        print("F1 Micro: {:.6f}".format(f1_micro))
+        print("F1 Micro: {:.6f}".format(f1_macro))
+        
+        print('classes- precision - recall - f1:')
+        
+        print(precision_classes)
+        print(recall_classes)
+        print(f1_classes)
+        
+        print("train_loss: {:.6f}".format(loss_meter.avg))
+        print("valid_loss: {:.6f}".format(valid_loss))
+        
+        print('validation finished')
+
+        if f1_macro > best_f1_macro:
+            best_f1_macro = f1_macro
+            best_epoch = epoch
+            
+        torch.save(audio_model.state_dict(), "%s/models/audio_model.%d.pth" % (exp_dir, epoch))
+        if len(train_loader.dataset) > 2e5:
+            torch.save(optimizer.state_dict(), "%s/models/optim_state.%d.pth" % (exp_dir, epoch))
+            
+        """
+        
         if f1 > best_f1:
             best_f1 = f1
             if main_metrics == 'mAP':
@@ -241,7 +280,7 @@ def train(audio_model, train_loader, test_loader, args):
         torch.save(audio_model.state_dict(), "%s/models/audio_model.%d.pth" % (exp_dir, epoch))
         if len(train_loader.dataset) > 2e5:
             torch.save(optimizer.state_dict(), "%s/models/optim_state.%d.pth" % (exp_dir, epoch))
-
+"""
         scheduler.step()
 
         print('Epoch-{0} lr: {1}'.format(epoch, optimizer.param_groups[0]['lr']))

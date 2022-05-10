@@ -1,0 +1,77 @@
+slurmstepd: error: task/cgroup: unable to add task[pid=194849] to memory cg '(null)'
++ export TORCH_HOME=../../pretrained_models
++ TORCH_HOME=../../pretrained_models
++ model=ast
++ dataset=custom
++ nocall=True
++ timetest = True
+/var/spool/slurm/d/job3232019/slurm_script: line 13: timetest: command not found
++ imagenetpretrain=True
++ audiosetpretrain=True
++ bal=False
++ '[' True == True ']'
++ lr=1e-5
++ freqm=24
++ timem=96
++ mixup=0
++ epoch=6
++ batch_size=48
++ fstride=10
++ tstride=10
++ base_exp_dir=./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_2fold
++ '[' -d ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_2fold ']'
++ mkdir -p
+mkdir: missing operand
+Try 'mkdir --help' for more information.
++ (( fold=1 ))
++ (( fold<=2 ))
++ echo 'now process fold1'
+now process fold1
++ exp_dir=./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_2fold/fold1
++ tr_data=./data/datafiles/custom_train_data_1.json
++ te_data=./data/datafiles/custom_eval_data_1.json
++ CUDA_CACHE_DISABLE=1
++ python -W ignore ../../src/run.py --model ast --dataset custom --data-train ./data/datafiles/custom_train_data_1.json --data-val ./data/datafiles/custom_eval_data_1.json --exp-dir ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_2fold/fold1 --label-csv ./data/custom_labels.csv --n_class 21 --lr 1e-5 --n-epochs 6 --batch-size 48 --save_model False --freqm 24 --timem 96 --mixup 0 --bal False --tstride 10 --fstride 10 --imagenet_pretrain True --audioset_pretrain True
+wandb: Currently logged in as: birdsongs (use `wandb login --relogin` to force relogin)
+I am process 194862, running on it03.kuacc.ku.edu.tr: starting (Fri May  6 11:22:21 2022)
+wandb: Tracking run with wandb version 0.12.9
+wandb: Syncing run legendary-river-21
+wandb:  View project at https://wandb.ai/birdsongs/istangul-sm-dataset-40
+wandb:  View run at https://wandb.ai/birdsongs/istangul-sm-dataset-40/runs/1c7yfvn1
+wandb: Run data is saved locally in /scratch/users/fsofian19/COMP491_model/models/ast_custom/egs/custom/wandb/run-20220506_112222-1c7yfvn1
+wandb: Run `wandb offline` to turn off syncing.
+
+now train a audio spectrogram transformer model
+balanced sampler is not used
+---------------the train dataloader---------------
+now using following mask: 24 freq, 96 time
+now using mix-up with rate 0.000000
+now process custom
+use dataset mean -6.442 and std 4.178 to normalize the input.
+number of classes is 21
+---------------the evaluation dataloader---------------
+now using following mask: 0 freq, 0 time
+now using mix-up with rate 0.000000
+now process custom
+use dataset mean -6.442 and std 4.178 to normalize the input.
+number of classes is 21
+---------------AST Model Summary---------------
+ImageNet pretraining: True, AudioSet pretraining: True
+frequncey stride=10, time stride=10
+number of patches=600
+
+Creating experiment directory: ./exp/train-custom-f10-t10-impTrue-aspTrue-b48-lr1e-5-6-istangull_ncd_sm_2fold/fold1
+Now starting training for 6 epochs
+2022-05-06 11:22:34.811318
+running on cpu
+Total parameter number is : 87.273 million
+Total trainable parameter number is : 87.273 million
+scheduler for custom dataset is used
+now training with custom, main metrics: mAP, loss function: BCEWithLogitsLoss(), learning rate scheduler: <torch.optim.lr_scheduler.MultiStepLR object at 0x2aca000ba5b0>
+current #steps=0, #epochs=1
+start training...
+---------------
+2022-05-06 11:22:34.817108
+current #epochs=1, #steps=0
+slurmstepd: error: Job 3232019 exceeded memory limit (6263012 > 4194304), being killed
+slurmstepd: error: *** JOB 3232019 ON it03 CANCELLED AT 2022-05-06T11:22:40 ***

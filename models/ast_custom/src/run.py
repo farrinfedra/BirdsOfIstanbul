@@ -69,8 +69,8 @@ parser.add_argument('--audioset_pretrain', help='if use ImageNet and audioset pr
 args = parser.parse_args()
 
 
-wandb.init(project="istangul-sm-dataset-40")
-wandb.config = {"learning_rate": 1e-5, "epochs": 6, "batch_size": 48} # fix to 6
+wandb.init(project="istangul-50-class")
+wandb.config = {"learning_rate": 1e-5, "epochs": 6, "batch_size": 48} 
 
 
 # transformer based model

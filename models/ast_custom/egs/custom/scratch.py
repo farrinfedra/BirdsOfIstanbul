@@ -4,6 +4,7 @@ import os
 import numpy as np
 import re
 import librosa
+import sys
 
 
 def get_immediate_files(a_dir):
@@ -12,29 +13,28 @@ def get_immediate_files(a_dir):
 # read_csv function which is used to read the required CSV file
 #data = pd.read_csv('/kuacc/users/bbiner21/input.csv') 
 
-csv_dir = '../../../../dataset/metadata/meta_sm.csv'
-dataset_dir = '/datasets/xeno_canto/sm_dataset/'
+csv_dir = '../../../../dataset/metadata/cumtom_meta1.csv'
+dataset_dir = '/datasets/xeno_canto/491/'
 base_path = './data'
 data = pd.read_csv(csv_dir) 
 print("Initial data shape: ")
 print(data.shape)
 
 
-data = data.drop(["type", "latitude","longitude","scientific_name","common_name","url"], axis=1)
+#data = data.drop(["type", "latitude","longitude","scientific_name","common_name","url"], axis=1)
 
 
 
 valid_audio_list = get_immediate_files(dataset_dir)
+#print(valid_audio_list)
 
-
-
-for index, row in data.iterrows():
-    if row['filename'] not in valid_audio_list:
-        data = data.drop(labels=index, axis=0)
+#for index, row in data.iterrows():
+#    if row['audio'] not in valid_audio_list:
+#        data = data.drop(labels=index, axis=0)
         
 
-print("after removing some rows and columns")
-print(data.shape)
+#print("after removing some rows and columns")
+#print(data.shape)
 
 labels = (data['primary_label'] ).unique()
 print(len(labels))
@@ -68,12 +68,12 @@ df.to_csv(base_path + '/custom_labels.csv')
 
 
 
-
 targets = []
 call_binaries = []
 maxLen = 10
 durations = []
-
+paths = []
+destination = []
 
 for index, row in data.iterrows():
     curr_targets = [target_dict[row['primary_label']]][0]
@@ -87,12 +87,14 @@ for index, row in data.iterrows():
     #curr_targets = [str(x) for x in curr_targets]
     #targets.append("-".join(curr_targets))
     targets.append(curr_targets)
-    file_path = dataset_dir + row['filename']
-    y, sr = librosa.load(path = file_path , sr = 16000)
-    durations.append(librosa.get_duration(y=y, sr=sr))
+    #file_path = dataset_dir + row['filename']
+    #y, sr = librosa.load(path = file_path , sr = 16000)
+    durations.append(row['duration'])
+    paths.append(row['audio'])
+    destination.append(row['destination'])
 
-    if index % 10000 == 0:
-        print(index)
+    #if index % 10000 == 0:
+    #    print(index)
 
     # instead of using pre calculated no call detector from last years winner we are going to create our own
     
@@ -106,11 +108,14 @@ for index, row in data.iterrows():
 #     if len(arr_bool) < 10:
 #         arr_bool = np.append(arr_bool,np.zeros(maxLen - len(arr_bool),dtype=int)) 
 #     call_binaries.append(" ".join(str(x) for x in arr_bool))
-    
-num_fold =2
+#print('targets are {t}'.format(t = targets))    
+num_fold =5
 sample_per_fold = len(data)//num_fold
 remainder = len(data) % num_fold
 
+print('len data is {l}'.format(l = len(data)))
+print('sample per fold is {s}'.format(s = sample_per_fold))
+print('remainder is {r}'.format(r = remainder))
 folds = []
 for i in range(num_fold):
     for j in range(sample_per_fold):
@@ -118,6 +123,7 @@ for i in range(num_fold):
 
 for j in range(remainder):
     folds.append(j+1)
+
 
 random.shuffle(folds)
 #
@@ -127,7 +133,9 @@ random.shuffle(folds)
 data['fold'] = folds
 data['target'] = targets
 data['durations'] = durations
+data['paths'] = paths
+data['destination'] = destination
 #data["call_detection"] = call_binaries
-data = data[["filename","fold","target","primary_label","durations"]]
+data = data[["filename","fold","target","primary_label", "paths", "destination", "durations"]]
 
 data.to_csv(base_path + '/custom_data/custom_meta.csv')
