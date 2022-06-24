@@ -1,5 +1,5 @@
-# Birds of Istanbul 
-https://img.shields.io/static/v1?label=<Platform>&message=<iOS>&color=<blue>
+# Birds of Istanbul [![IOS](https://img.shields.io/badge/Platform-iOS-blue)](https://apps.apple.com/tr/app/birds-of-istanbul/id1628864377?l=tr)
+
 > Shazam for birds of istanbul!
 
 This repository contains the code for the deep learning model for Birds of Istanbul application on iOS.
