@@ -14,7 +14,8 @@ This repository contains the code for the deep learning model for Birds of Istan
 4.  [Dataset](#dataset)
 5.  [Preprocessing](#preprocessing)
 6.  [Results](#results)
-7.  [References](#references)
+7.  [Members](#members)
+8.  [References](#references)
  
 *******
 ## Introduction
@@ -23,6 +24,9 @@ This repository contains the code for the deep learning model for Birds of Istan
 An iOS application for classifying bird songs developed for ornithologists, bird watcher, or those who are curious and want to explore birds in their surroundings. 
 
 ![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_snapshots.png?raw=true)
+
+Click to visit the repository for Swift code: [![Github](http://img.shields.io/badge/github-%231877F2.svg?&style=for-the-badge&logo=github&logoColor=white&color=black)](https://github.com/omeraksoy1/COMP491)
+
 
 ## Features
 > What features does Birds of Istanbul offer?
@@ -63,6 +67,17 @@ Here are some results of our model. The model is tested on two different dataset
 | Precision Micro | 0.9272      | 0.8549      | 
 | Recall Micro    | 0.602       | 0.59        | 
 
+## Members
+- Farrin Marouf Sofian: ML Researcher 
+- Andrew Bond: DevOps
+- Kutay Eroğlu: DevOps
+- Ömer Faruk Aksoy: Full Stack iOS Development
+- Can Köz: Full Stack iOS Development
+
+```diff
+@@ Special thanks to Prof. Aykut Erdem, Prof. Bariş Akgün, Prof. Erkut Erdem and Burak Can Biner For their help and guidance throughout the project. @@
+```
+******
 ## References
 <a id = "1">[1]</a> 
 Gong, Y., Chung, Y. and Glass, J., 2021. AST: Audio Spectrogram Transformer. In Interspeech.
