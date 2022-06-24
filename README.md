@@ -39,10 +39,10 @@ Based on Audio Spectrogram transformer [[1]](#1), pre-trained on 397 bird specie
 All bird recordings are obtained from Xeno Canto [[2]](#2) website. Downloaded 300k bird recordings of 400 bird species in Türkiye and created metadata. 
 
 ### Preprocessing
-- Converted recordings to wav format.
-- Re-sampled to 16 kHz.
-- Split audios to 40 seconds.
-- Create metadata and checked labels with that of eBird [[3]](#3)
+- [x] Converted recordings to wav format.
+- [x] Re-sampled to 16 kHz.
+- [x] Split audios to 40 seconds.
+- [x] Create metadata and checked labels with that of eBird [[3]](#3)
 
 ### References
 <a id = "1">[1]</a> 
