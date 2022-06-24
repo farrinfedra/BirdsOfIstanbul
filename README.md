@@ -10,6 +10,8 @@ This repository contains the code for the deep learning model for Birds of Istan
 - [Introduction](#introduction)
 - [Features](#features)
 - [Model](#model)
+- [Dataset](#dataset)
+- [Preprocessing](#preprocessing)
 - [References](#references)
 
 ### Introduction
@@ -23,7 +25,7 @@ An iOS application for classifying bird songs developed for ornithologists, bird
 > What features does Birds of Istanbul offer?
 - You can record bird songs in the app or upload your previously recorded bird recordings and learn the species.
 - You can explore birds in your neighborhood and visualize them on the map.
-- Get to know your classified birds as well as 400 species in different regions of Turkey.
+- Get to know your classified birds as well as 400 species in different regions of Türkiye.
 
 ### Model
 This section is about the birds of istanbul model.
@@ -31,8 +33,16 @@ This section is about the birds of istanbul model.
 
 ![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true)
 
-Based on Audio Spectrogram transformer [[1]](#1)
+Based on Audio Spectrogram transformer [[1]](#1), pre-trained on 397 bird species, fine-tuned on 400 bird species from different regions of Türkiye.
 
+### Dataset
+All bird recordings are obtained from Xeno Canto [[2]](#2) website. Downloaded 300k bird recordings of 400 bird species in Türkiye and created metadata. 
+
+### Preprocessing
+- Converted recordings to wav format.
+- Re-sampled to 16 kHz.
+- Split audios to 40 seconds.
+- Create metadata and checked labels with that of eBird [[3]](#3)
 
 ### References
 <a id = "1">[1]</a> 
