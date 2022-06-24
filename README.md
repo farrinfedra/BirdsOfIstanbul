@@ -4,6 +4,8 @@
 
 This repository contains the code for the deep learning model for Birds of Istanbul application on iOS.
 
+<img src="https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/logo.png?raw=true" alt="logo" style = "width:100px; margin-right:0px;" />
+
 ## Explore Links
 - [Introduction](#introduction)
 - [Features](#features)
