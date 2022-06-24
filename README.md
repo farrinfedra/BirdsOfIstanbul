@@ -10,6 +10,7 @@ This repository contains the code for the deep learning model for Birds of Istan
 - [Introduction](#introduction)
 - [Features](#features)
 - [Model](#model)
+- [References](#references)
 
 ### Introduction
 > What is Birds of Istanbul?
@@ -17,6 +18,7 @@ This repository contains the code for the deep learning model for Birds of Istan
 An iOS application for classifying bird songs developed for ornithologists, bird watcher, or those who are curious and want to explore birds in their surroundings. 
 
 ![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_snapshots.png?raw=true)
+
 ### Features
 > What features does Birds of Istanbul offer?
 - You can record bird songs in the app or upload your previously recorded bird recordings and learn the species.
@@ -28,3 +30,20 @@ This section is about the birds of istanbul model.
 > All about the Birds of Istanbul Model
 
 ![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true)
+
+Based on Audio Spectrogram transformer [[1]](#1)
+
+
+### References
+<a id = "1">[1]</a> 
+Gong, Y., Chung, Y. and Glass, J., 2021. AST: Audio Spectrogram Transformer. In Interspeech.
+
+<a id = "2">[2]</a> 
+Canto Foundation, X., 2022. URL https://xeno-canto.org.
+
+<a id = "3">[3]</a> 
+eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornithology, Ithaca, New York. Available: http://www.ebird.org (Accessed: May 15, 2022]) 
+
+<a id = "4">[4]</a> 
+Swift. [Online]. Available: https://www.swift.org/ . (Accessed: May 24, 2022).
+
