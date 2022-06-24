@@ -22,3 +22,5 @@ An iOS application for classifying bird songs developed for ornithologists, bird
 
 ### Model
 > All about the Birds of Istanbul Model
+
+![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true)
