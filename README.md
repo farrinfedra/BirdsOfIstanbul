@@ -23,7 +23,7 @@ This repository contains the code for the deep learning model for Birds of Istan
 
 An iOS application for classifying bird songs developed for ornithologists, bird watcher, or those who are curious and want to explore birds in their surroundings. 
 
-![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_snapshots.png?raw=true)
+<img src="https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_snapshots.png?raw=true" alt="app" style = "width:650px;" />
 
 Click to visit the repository for Swift code: [![Github](http://img.shields.io/badge/github-%231877F2.svg?&style=for-the-badge&logo=github&logoColor=white&color=black)](https://github.com/omeraksoy1/COMP491)
 
@@ -38,9 +38,9 @@ Click to visit the repository for Swift code: [![Github](http://img.shields.io/b
 This section is about the birds of istanbul model.
 > All about the Birds of Istanbul Model.
 
-![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true)
+Based on Audio Spectrogram transformer (AST) [[1]](#1), pre-trained on 397 bird species, fine-tuned on 400 bird species from different regions of Türkiye. AST takes as an input a raw waveform of a bird song and converts it into a 128 × 100t spectrogram which is then converted into a sequence of 16 × 16 patches. These patches are fed into a linear projection layer that result in 1-dimensional patch embedding of size 768. The patch embeddings are then accompanied by their corresponding learnable positional embeddings along with a classification token (CLS) as shown in figure 6. And, then fed into a Transformer encoder with 12 layers, 12 heads and an embedding dimension of 768. Lastly, the output of the Transformer encoder for CLS token which represents the spectrogram, is fed into a linear layer and the resulting classification labels are obtained. In our case, following the same process as in the pre-trained AST on 397 bird species, the model predicts bird species in each 5 second chunk of an audio recording and the bird species with the highest score is extracted.
 
-Based on Audio Spectrogram transformer [[1]](#1), pre-trained on 397 bird species, fine-tuned on 400 bird species from different regions of Türkiye.
+<img src="https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true" alt="app2" style = "width:650px;" />
 
 ## Dataset
 All bird recordings are obtained from Xeno Canto [[2]](#2) website. Downloaded 335k bird recordings of 400 bird species in Türkiye and created metadata. Here are train - validation - test dataset statistics.
@@ -75,7 +75,7 @@ Here are some results of our model. The model is tested on two different dataset
 - Can Köz: Full Stack iOS Development
 
 ```diff
-@@ Special thanks to Prof. Aykut Erdem, Prof. Bariş Akgün, Prof. Erkut Erdem and Burak Can Biner For their help and guidance throughout the project. @@
+@@ Special thanks to Prof. Aykut Erdem, Prof. Bariş Akgün, Prof. Erkut Erdem, Prof. Çaglar Akçay and Burak Can Biner For their help and guidance throughout the project. @@
 ```
 ******
 ## References
