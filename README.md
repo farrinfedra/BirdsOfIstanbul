@@ -29,7 +29,7 @@ An iOS application for classifying bird songs developed for ornithologists, bird
 
 ### Model
 This section is about the birds of istanbul model.
-> All about the Birds of Istanbul Model
+> All about the Birds of Istanbul Model.
 
 ![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true)
 
@@ -41,8 +41,9 @@ All bird recordings are obtained from Xeno Canto [[2]](#2) website. Downloaded 3
 ### Preprocessing
 - [x] Converted recordings to wav format.
 - [x] Re-sampled to 16 kHz.
-- [x] Split audios to 40 seconds.
-- [x] Create metadata and checked labels with that of eBird [[3]](#3)
+- [x] Split audios to 40 seconds to speed up the mel spectrogram conversion process.
+- [x] Create metadata and checked labels with that of eBird [[3]](#3).
+- [x] Split data into train, validation and test in 80% - 10% - 10% portions, respectively.
 
 ### References
 <a id = "1">[1]</a> 
@@ -52,7 +53,7 @@ Gong, Y., Chung, Y. and Glass, J., 2021. AST: Audio Spectrogram Transformer. In 
 Canto Foundation, X., 2022. URL https://xeno-canto.org.
 
 <a id = "3">[3]</a> 
-eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornithology, Ithaca, New York. Available: http://www.ebird.org (Accessed: May 15, 2022]) 
+eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornithology, Ithaca, New York. Available: http://www.ebird.org (Accessed: May 15, 2022) 
 
 <a id = "4">[4]</a> 
 Swift. [Online]. Available: https://www.swift.org/ . (Accessed: May 24, 2022).
