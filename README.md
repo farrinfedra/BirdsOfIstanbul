@@ -1,4 +1,5 @@
-# Birds of Istanbul
+# Birds of Istanbul 
+https://img.shields.io/static/v1?label=<Platform>&message=<iOS>&color=<blue>
 > Shazam for birds of istanbul!
 
 This repository contains the code for the deep learning model for Birds of Istanbul application on iOS.
@@ -21,6 +22,7 @@ An iOS application for classifying bird songs developed for ornithologists, bird
 - Get to know your classified birds as well as 400 species in different regions of Turkey.
 
 ### Model
+This section is about the birds of istanbul model.
 > All about the Birds of Istanbul Model
 
 ![alt text](https://github.com/farrinfedra/BirdsOfIstanbul/blob/main/app_model_pic.png?raw=true)
