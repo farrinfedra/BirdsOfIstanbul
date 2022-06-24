@@ -54,7 +54,15 @@ All bird recordings are obtained from Xeno Canto [[2]](#2) website. Downloaded 3
 - [x] Split data into train, validation and test in 80% - 10% - 10% portions, respectively.
 
 ## Results
-Here are some results of our model. The model is 
+Here are some results of our model. The model is tested on two different datasets. The first test set is from Xeno Canto described in [Dataset](#dataset) section and the second dataset is obtained from eBird [[3]](#3) and contains around 7k recordings of real recordings from different regions in Türkiye.
+
+|Metric           | Xeno Canto  | eBird  | 
+| -----------     | ----------- | ----------- | 
+| F1 Micro        | 0.7229      |  0.7061     | 
+| Precision Macro | 0.9272      | 0.65        | 
+| Precision Micro | 0.9272      | 0.8549      | 
+| Recall Micro    | 0.602       | 0.59        | 
+
 ## References
 <a id = "1">[1]</a> 
 Gong, Y., Chung, Y. and Glass, J., 2021. AST: Audio Spectrogram Transformer. In Interspeech.
